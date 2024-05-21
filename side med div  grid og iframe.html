@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid Layout</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: rgb(178, 185, 190);
+        }
+
+        header {
+            margin-bottom: 20px;
+            font-size: 36px;
+            font-weight: bold;
+            text-align: center;
+            color: #333;
+        }
+
+        button {
+            background-color: rgb(171, 182, 182);
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 3fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr;
+            gap: 10px;
+            width: 90%;
+            height: 80%;
+        }
+
+        .grid-item {
+            background-color: #4CAF50;
+            font-size: 30px;
+            text-align: center;
+            color: white;
+            border: 1px solid black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0;
+            margin: 0;
+        }
+
+        .rounded {
+            border-radius: 15px;
+        }
+
+        /* Denne strækker sig over alle tre rækker */
+        .grid-item:nth-child(5) {
+            grid-column: 2;
+            grid-row: 1 / span 3;
+        }
+
+        /* Denne strækker sig over alle tre kolonner */
+        .grid-item:nth-child(8) {
+            grid-column: 1 / span 3;
+            background-color: #333;
+            margin-top: 20px;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            padding: 0;
+            margin: 0;
+            display: block;
+        }
+
+        #full_screen_button {
+            font-size: 20px;
+            padding: 10px;
+            cursor: pointer;
+            position: absolute;
+        }
+
+        #full_screen_button i {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="rounded">Min Awesome Spilside</header>
+    <div class="grid-container">
+        <div class="grid-item rounded">1</div>
+        <div class="grid-item rounded">2</div>
+        <div class="grid-item rounded">3</div>
+        <div class="grid-item rounded">4</div>
+        <div class="grid-item">
+            <iframe id="game_iframe"
+                src="https://html5.gamedistribution.com/9b634d67ddd6407c95effd409b947a76/?timestamp=-62135596800&countryCode=en&siteid=88&channelid=1&siteLocale=en&locale=en"
+                scrolling="none" allowfullscreen></iframe>
+        </div> <!-- Midterste kolonne -->
+        <div class="grid-item rounded">6</div>
+        <div class="grid-item rounded">7</div>
+        <div class="grid-item rounded">
+            <button id="full_screen_button" class="rounded"><i class="fas fa-expand"></i>Klik for full screen
+                mode</button>
+        </div> <!-- Celle der kombinerer 8, 9, 10 -->
+    </div>
+
+    <script>
+        document.getElementById('full_screen_button').addEventListener('click', function () {
+            var iframe = document.getElementById('game_iframe');
+            if (iframe.requestFullscreen) {
+                iframe.requestFullscreen();
+            } else if (iframe.mozRequestFullScreen) { /* Firefox */
+                iframe.mozRequestFullScreen();
+            } else if (iframe.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+                iframe.webkitRequestFullscreen();
+            } else if (iframe.msRequestFullscreen) { /* IE/Edge */
+                iframe.msRequestFullscreen();
+            }
+        });
+    </script>
+</body>
+
+</html>
