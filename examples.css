@@ -1,0 +1,7 @@
+/*center an item in a container, such as a div*/
+.container {
+    display: flex;
+    justify-content: center; /* Horizontal centering */
+    align-items: center;    /* Vertical centering */
+    height: 100vh; /* Optional: set height to the viewport height to demonstrate vertical centering */
+}
