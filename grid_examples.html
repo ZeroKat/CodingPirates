@@ -176,9 +176,6 @@
         <div class="grid-item rounded">3</div>
         <div class="grid-item rounded">4</div>
         <div class="grid-item">
-            <iframe id="game_iframe"
-                src="https://html5.gamedistribution.com/9b634d67ddd6407c95effd409b947a76/?timestamp=-62135596800&countryCode=en&siteid=88&channelid=1&siteLocale=en&locale=en"
-                scrolling="none" allowfullscreen></iframe>
         </div> <!-- Midterste kolonne -->
         <div class="grid-item rounded">6</div>
         <div class="grid-item rounded">7</div>
@@ -193,21 +190,6 @@
                 mode</button>
         </div> <!-- Celle der kombinerer 8, 9, 10 -->
     </div>
-
-    <script>
-        document.getElementById('full_screen_button').addEventListener('click', function () {
-            var iframe = document.getElementById('game_iframe');
-            if (iframe.requestFullscreen) {
-                iframe.requestFullscreen();
-            } else if (iframe.mozRequestFullScreen) { /* Firefox */
-                iframe.mozRequestFullScreen();
-            } else if (iframe.webkitRequestFullscreen) {
-                iframe.webkitRequestFullscreen();
-            } else if (iframe.msRequestFullscreen) { /* IE/Edge */
-                iframe.msRequestFullscreen();
-            }
-        });
-    </script>
 
     <script>
         var colorSchemes = [
